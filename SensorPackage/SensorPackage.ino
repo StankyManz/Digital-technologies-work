@@ -77,10 +77,10 @@ void launchSD(bool launchSD) { //method recieving a boolean value(true or false)
   if (launchSD == true){ //if recieved true
   //SDcard printing:
   Serial.println("SDcard Printing"); //print SDcard printing into serial monitor
-  Serial.print("(hPa)"); //labelling value as hPa
+  sdCard.print("(hPa)"); //labelling value as hPa
   sdCard.print(Sensor.getPressure_hPa()); //printing pressure in hPa to SDcard
   sdCard.print (" , "); //dividing the two values
-  Serial.print("(C)"); //labelling value as degrees C
+  sdCard.print("(C)"); //labelling value as degrees C
   sdCard.println(Sensor.getTemperature_degC()); //printing Temperature in degrees C to SDcard
   sdCard.syncFile(); //sending information to SDcard
   delay(200); //delaying by 200ms to get a more controllable amount of variables
