@@ -1,4 +1,4 @@
- //setting up library's for the code:
+// setting up library's for the code
 #include <Wire.h>
 #include <SparkFun_Qwiic_OpenLog_Arduino_Library.h>
 #include <SparkFun_LPS25HB_Arduino_Library.h>
@@ -24,10 +24,9 @@ void setup() { //setup
   Wire.begin();
   Sensor.begin();
   sdCard.begin();
-
   sdCard.append(FILENAME); // naming file on SDcard
   
-  sdCard.println("NEW Temperature and Pressure readings"); //setting a checkmark so that new readings can be identified from older readings
+  //sdCard.println("NEW Temperature and Pressure readings"); //setting a checkmark so that new readings can be identified from older readings
   Serial.println("NEW Temperature and Pressure readings"); //setting a checkmark so that new readings can be identified from older readings
  //creating headers for the temperature and pressure values:
   Serial.println("Pressure , Temperature"); //print for serial monitor
@@ -94,5 +93,6 @@ void launchSD(bool launchSD) { //method recieving a boolean value(true or false)
     Serial.print("(C)"); //labelling value as degrees C
     Serial.println(Sensor.getTemperature_degC()); //printing Temperature in degrees C to serial monitor
     delay(200); //delaying by 200ms to get a more controllable amount of variables
+
   }
 }
