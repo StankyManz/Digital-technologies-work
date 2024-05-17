@@ -43,7 +43,7 @@ void setup() { //setup
   }
   if(sdStatus == 0xFF) { //if the sdcard status meets a certain criteria
     Serial.println("SDcard not responding"); //print the SDcard is not responding into serial monitor
-    while(1);
+    while(1);//pausing program
   }
 
   if(sdStatus & 1<<STATUS_SD_INIT_GOOD) { //if the sdcard status meets a certain criteria
