@@ -14,7 +14,7 @@
 LPS25HB Sensor;
 OpenLog sdCard;
 
-const String FILENAME = "sensorLogCG.txt"; //naming file on SDcard
+const String FILENAME = "sensorReading.txt"; //naming file on SDcard
 
 void setup() { //setup
 
@@ -26,8 +26,9 @@ void setup() { //setup
   sdCard.begin();
 
   sdCard.append(FILENAME); // naming file on SDcard
-
-Serial.println("NEW Temperature and Pressure readings"); //setting a checkmark so that new readings can be identified from older readings
+  
+  sdCard.println("NEW Temperature and Pressure readings"); //setting a checkmark so that new readings can be identified from older readings
+  Serial.println("NEW Temperature and Pressure readings"); //setting a checkmark so that new readings can be identified from older readings
  //creating headers for the temperature and pressure values:
   Serial.println("Pressure , Temperature"); //print for serial monitor
   sdCard.println("Pressure , Temperature"); //print for SDcard
@@ -43,6 +44,7 @@ Serial.println("NEW Temperature and Pressure readings"); //setting a checkmark s
   }
   if(sdStatus == 0xFF) { //if the sdcard status meets a certain criteria
     Serial.println("SDcard not responding"); //print the SDcard is not responding into serial monitor
+    while(1);
   }
 
   if(sdStatus & 1<<STATUS_SD_INIT_GOOD) { //if the sdcard status meets a certain criteria
